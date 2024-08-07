@@ -8,5 +8,7 @@ namespace Restaurants.Domain.Entities
         public string Description { get; set; } = default!;
         public decimal Price { get; set; }
 
+        public int RestaurantId { get; set; }
+
     }
 }
