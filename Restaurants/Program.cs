@@ -1,5 +1,6 @@
 using Restaurants.Infrastructure.Extentions;
 using Restaurants.Infrastructure.Seeders;
+using Restaurants.Application.Extentions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,7 @@ builder.Services.AddSwaggerGen();
 
 
 builder.Services.AddInfrastruture(builder.Configuration);
+builder.Services.AddApplication();
 
 var app = builder.Build();
 
