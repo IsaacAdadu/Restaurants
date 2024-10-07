@@ -28,6 +28,7 @@ namespace Restaurants.API.Controllers
             if (restaurant == null)
                 return NotFound();
             return Ok(restaurant);
+
         }
 
         [HttpDelete("{id}")]
