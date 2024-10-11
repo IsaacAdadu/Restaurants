@@ -3,6 +3,7 @@ using Restaurants.Infrastructure.Seeders;
 using Restaurants.Application.Extentions;
 using Serilog;
 using Serilog.Events;
+using Restaurants.API.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<ErrorHandlingMiddleware>();
 
 
 builder.Services.AddInfrastruture(builder.Configuration);
@@ -30,6 +33,7 @@ var seeder = scope.ServiceProvider.GetRequiredService<IRestaurantSeeder>();
 await seeder.Seed();
 
 // Configure the HTTP request pipeline.
+app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.UseSerilogRequestLogging();
 
