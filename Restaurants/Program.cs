@@ -15,6 +15,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
+builder.Services.AddScoped<RequestTimeLoggingMiddleware>();
 
 
 builder.Services.AddInfrastruture(builder.Configuration);
@@ -34,6 +35,7 @@ await seeder.Seed();
 
 // Configure the HTTP request pipeline.
 app.UseMiddleware<ErrorHandlingMiddleware>();
+app.UseMiddleware<RequestTimeLoggingMiddleware>();
 
 app.UseSerilogRequestLogging();
 
