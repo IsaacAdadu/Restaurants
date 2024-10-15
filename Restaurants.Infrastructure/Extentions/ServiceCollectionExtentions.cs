@@ -25,6 +25,7 @@ namespace Restaurants.Infrastructure.Extentions
 
             services.AddScoped<IRestaurantSeeder, RestaurantSeeder>();
             services.AddScoped<IRestaurantsRepository, RestaurantsRepository>();
+            services.AddScoped<IDishesRepository, DishesRepository>();
         }
     }
 }
