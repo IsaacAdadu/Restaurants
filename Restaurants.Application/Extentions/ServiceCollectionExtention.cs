@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Restaurants.Application.Restaurants;
 using FluentValidation;
 using FluentValidation.AspNetCore;
-using Restaurants.Application.User;
+using Restaurants.Application.Users;
 
 namespace Restaurants.Application.Extentions
 {
