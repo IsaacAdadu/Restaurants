@@ -36,10 +36,18 @@ namespace Restaurants.Infrastructure.Seeders
         {
             List<IdentityRole> roles =
                 [
-                   new (UserRoles.User),
-                   new (UserRoles.Owner),
-                   new (UserRoles.Admin),
-
+                   new (UserRoles.User)
+                   {
+                       NormalizedName = UserRoles.User.ToLower(),
+                   },
+                   new (UserRoles.Owner)
+                   {
+                       NormalizedName= UserRoles.Owner.ToLower(),
+                   },
+                   new (UserRoles.Admin)
+                   {
+                       NormalizedName= UserRoles.Admin.ToLower()
+                   },
                 ];
 
             return roles;
